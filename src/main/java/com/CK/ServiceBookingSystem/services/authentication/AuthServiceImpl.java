@@ -5,6 +5,7 @@ import com.CK.ServiceBookingSystem.dto.UserDto;
 import com.CK.ServiceBookingSystem.entity.User;
 import com.CK.ServiceBookingSystem.enums.UserRole;
 import com.CK.ServiceBookingSystem.reposity.UserRepository;
+import com.CK.ServiceBookingSystem.services.authentication.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
