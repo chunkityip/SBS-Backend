@@ -15,6 +15,7 @@ public class AuthServiceImpl implements AuthService {
     private UserRepository userRepository;
 
     public UserDto signupClient(SignupRequestDTO signupRequestDTO) {
+        // Create a new user entity and set its properties
         User user = new User();
 
         user.setName(signupRequestDTO.getName());
@@ -23,8 +24,27 @@ public class AuthServiceImpl implements AuthService {
         user.setPhone(signupRequestDTO.getPhone());
         user.setPassword(signupRequestDTO.getPassword());
 
+        // Save the user entity and convert it to a DTO
         user.setRole(UserRole.CLIENT);
+        return userRepository.save(user).getDto();
+    }
 
+    // Checks if a user with a given email already exists in the system
+    public Boolean presentByEmail(String email) {
+        return userRepository.findFirstByEmail(email) != null;
+    }
+
+    public UserDto signupCompany(SignupRequestDTO signupRequestDTO) {
+        // Create a new user entity and set its properties
+        User user = new User();
+
+        user.setName(signupRequestDTO.getName());
+        user.setEmail(signupRequestDTO.getEmail());
+        user.setPhone(signupRequestDTO.getPhone());
+        user.setPassword(signupRequestDTO.getPassword());
+
+        // Save the user entity and convert it to a DTO
+        user.setRole(UserRole.COMPANY);
         return userRepository.save(user).getDto();
     }
 }

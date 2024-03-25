@@ -7,4 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 //We use JPA this time
 
 public interface UserRepository extends JpaRepository<User, Long> {
+
+    User findFirstByEmail(String email);
+
 }
