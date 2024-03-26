@@ -2,6 +2,7 @@ package com.CK.ServiceBookingSystem.configs;
 
 
 import ch.qos.logback.core.spi.FilterReply;
+import io.github.pixee.security.Newlines;
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -33,7 +34,7 @@ public class SimpleCoresFilter implements Filter {
         Map<String, String> map = new HashMap<>();
 
         String originHeader = request.getHeader("origin");
-        response.setHeader("Access-Control-Allow-Origin", originHeader);
+        response.setHeader("Access-Control-Allow-Origin", Newlines.stripAll(originHeader));
         response.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, OPTIONS, DELETE");
         response.setHeader("Access-Control-Max-Age", "3600");
         response.setHeader("Access-Control-Allow-Headers", "*");
