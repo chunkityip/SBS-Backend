@@ -16,7 +16,7 @@ import java.util.function.Function;
 
 @Component
 public class JWTUtil {
-
+/*
     public static final String SECRET = "Fuxkyouhacker0917";
 
     private String createToken(Map<String , Object> claims , String userName) {
@@ -68,4 +68,8 @@ public class JWTUtil {
         final String username = extractUsername(token);
         return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }
+
+ */
 }
+
+

@@ -19,3 +19,4 @@ public class SignupRequestDTO {
     private String phone;
 
 }
+
