@@ -1,5 +1,6 @@
 package com.CK.ServiceBookingSystem.configs;
 
+import io.github.pixee.security.Newlines;
 import jakarta.servlet.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.Ordered;
@@ -43,7 +44,7 @@ public class SimpleCorsFilter implements Filter {
 
         // Allow requests from the actual Origin value if it's not null
         if (originHeader != null) {
-            response.setHeader("Access-Control-Allow-Origin", originHeader);
+            response.setHeader("Access-Control-Allow-Origin", Newlines.stripAll(originHeader));
         }
         response.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, OPTIONS, DELETE");
         response.setHeader("Access-Control-Max-Age", "3600");
